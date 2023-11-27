@@ -1,6 +1,7 @@
+
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'untitled.ui'
+# Form implementation generated from reading ui file 'calc.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -9,13 +10,14 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
+class Ui_btn_plus(object):
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(400, 504)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+    def setupUi(self, btn_plus):
+        btn_plus.setObjectName("btn_plus")
+        btn_plus.resize(400, 504)
+        self.centralwidget = QtWidgets.QWidget(btn_plus)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(0, 0, 400, 71))
@@ -49,28 +51,28 @@ class Ui_MainWindow(object):
         self.pushButton.setStyleSheet("background-color: rgb(236, 236, 177);\n"
 "font: 75 12pt \"MS Shell Dlg 2\";\n"
 "")
-        self.pushButton.setObjectName("btn_plus")
-        self.btn_plus = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_plus.setGeometry(QtCore.QRect(280, 70, 121, 91))
-        self.btn_plus.setStyleSheet("background-color: rgb(236, 236, 177);\n"
+        self.pushButton.setObjectName("pushButton")
+        self.btn_divide = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_divide.setGeometry(QtCore.QRect(280, 70, 121, 91))
+        self.btn_divide.setStyleSheet("background-color: rgb(236, 236, 177);\n"
 "font: 75 15pt \"MS Sans Serif\";\n"
 "font: 12pt \"MS Shell Dlg 2\";")
-        self.btn_plus.setIconSize(QtCore.QSize(40, 20))
-        self.btn_plus.setObjectName("ptn_")
-        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(280, 160, 121, 91))
-        self.pushButton_3.setStyleSheet("background-color: rgb(236, 236, 177);\n"
+        self.btn_divide.setIconSize(QtCore.QSize(40, 20))
+        self.btn_divide.setObjectName("btn_divide")
+        self.btn_multi = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_multi.setGeometry(QtCore.QRect(280, 160, 121, 91))
+        self.btn_multi.setStyleSheet("background-color: rgb(236, 236, 177);\n"
 "font: 75 12pt \"MS Shell Dlg 2\";")
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(280, 250, 121, 91))
-        self.pushButton_4.setStyleSheet("background-color: rgb(236, 236, 177);\n"
+        self.btn_multi.setObjectName("btn_multi")
+        self.btn_minus = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_minus.setGeometry(QtCore.QRect(280, 250, 121, 91))
+        self.btn_minus.setStyleSheet("background-color: rgb(236, 236, 177);\n"
 "font: 75 12pt \"MS Shell Dlg 2\";\n"
 "\n"
 "")
-        self.pushButton_4.setObjectName("pushButton_4")
+        self.btn_minus.setObjectName("btn_minus")
         self.widget = QtWidgets.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(0, 70, 281, 271))
+        self.widget.setGeometry(QtCore.QRect(0, 160, 281, 181))
         self.widget.setStyleSheet("\n"
 "background-color: rgb(243, 245, 255)")
         self.widget.setObjectName("widget")
@@ -169,60 +171,97 @@ class Ui_MainWindow(object):
         self.btn_8.setCheckable(False)
         self.btn_8.setObjectName("btn_8")
         self.gridLayout_2.addWidget(self.btn_8, 2, 1, 1, 1)
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.btn_delete = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_delete.setGeometry(QtCore.QRect(170, 70, 111, 91))
+        self.btn_delete.setStyleSheet("background-color: rgb(255, 23, 2);\n"
+"font: 75 italic 12pt \"Palatino Linotype\";")
+        self.btn_delete.setObjectName("btn_delete")
+        btn_plus.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(btn_plus)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 400, 26))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        btn_plus.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(btn_plus)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        btn_plus.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(btn_plus)
+        QtCore.QMetaObject.connectSlotsByName(btn_plus)
+        self.add_f()
+        self.is_equal=False
+    def add_f(self):
+        self.btn_zero.clicked.connect(lambda:self.write(self.btn_zero.text()))
+        self.btn_1.clicked.connect(lambda : self.write(self.btn_1.text()))
+        self.btn_2.clicked.connect(lambda: self.write(self.btn_2.text()))
+        self.btn_3.clicked.connect(lambda: self.write(self.btn_3.text()))
+        self.btn_4.clicked.connect(lambda: self.write(self.btn_4.text()))
+        self.btn_5.clicked.connect(lambda: self.write(self.btn_5.text()))
+        self.btn_6.clicked.connect(lambda: self.write(self.btn_6.text()))
+        self.btn_7.clicked.connect(lambda: self.write(self.btn_7.text()))
+        self.btn_8.clicked.connect(lambda: self.write(self.btn_8.text()))
+        self.btn_9.clicked.connect(lambda: self.write(self.btn_9.text()))
+        self.btn_divide.clicked.connect(lambda: self.write(self.btn_divide.text()))
+        self.pushButton.clicked.connect(lambda: self.write(self.pushButton.text()))
+        self.btn_multi.clicked.connect(lambda: self.write(self.btn_multi.text()))
+        self.btn_minus.clicked.connect(lambda: self.write(self.btn_minus.text()))
+        self.btn_equal.clicked.connect(self.result)
+        self.btn_delete.clicked.connect(self.delete_all)
+    def write(self,number):
+       if self.label.text()=="0":
+           self.label.setText(number)
+       else:
+           self.label.setText(self.label.text()+number)
+    def delete_all(self):
+        self.label.setText("0")
+        self.is_equal=False
+    def result(self):
+        if not self.is_equal:
+            self.is_equal = True
+            res=eval(self.label.text())
+            self.label.setText("Result="+str(res))
 
-    def retranslateUi(self, MainWindow):
+        else:
+            error=QMessageBox()
+            error.setWindowTitle("Error")
+            error.setText("This action can't be done")
+            error.Icon(QMessageBox.Warning)
+            error.setStandardButtons(QMessageBox.Ok|QMessageBox.Cancel)
+            error.setInformativeText("It's impossible to perform this action twice")
+            error.setDetailedText("Details")
+            error.buttonClicked.connect(self.popup_action)
+            error.exec_()
+    def popup_action(self,btn):
+        if btn.text()=="OK":
+            print("Ok")
+
+
+    def retranslateUi(self, btn_plus):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Calculate"))
-        self.label.setText(_translate("MainWindow", "0"))
-        self.btn_zero.setText(_translate("MainWindow", "0"))
-        self.btn_equal.setText(_translate("MainWindow", "="))
-        self.pushButton.setText(_translate("MainWindow", "+"))
-        self.ptn_.setText(_translate("MainWindow", "/"))
-        self.pushButton_3.setText(_translate("MainWindow", "*"))
-        self.pushButton_4.setText(_translate("MainWindow", "-"))
-        self.btn_7.setText(_translate("MainWindow", "7"))
-        self.btn_5.setText(_translate("MainWindow", "5"))
-        self.btn_4.setText(_translate("MainWindow", "4"))
-        self.btn_1.setText(_translate("MainWindow", "1"))
-        self.btn_3.setText(_translate("MainWindow", "3"))
-        self.btn_9.setText(_translate("MainWindow", "9"))
-        self.btn_2.setText(_translate("MainWindow", "2"))
-        self.btn_6.setText(_translate("MainWindow", "6"))
-        self.btn_8.setText(_translate("MainWindow", "8"))
-    def add_functions(self):
-        number=self.btn_zero.text()
-        self.btn_zero.clicked.connect(lambda:self.write_number(number))
-        self.btn_1.clicked.connect(lambda :self.btn_1(self.btn_1.text()))
-        self.btn_2.clicked.connect(lambda: self.btn_2(self.btn_2.text()))
-        self.btn_1.clicked.connect(lambda: self.btn_1(self.btn_3.text()))
-        self.btn_1.clicked.connect(lambda: self.btn_1(self.btn_4.text()))
-        self.btn_1.clicked.connect(lambda: self.btn_1(self.btn_5.text()))
-        self.btn_1.clicked.connect(lambda: self.btn_1(self.btn_6.text()))
-        self.btn_1.clicked.connect(lambda: self.btn_1(self.btn_7.text()))
-        self.btn_1.clicked.connect(lambda: self.btn_1(self.btn_8.text()))
-        self.btn_1.clicked.connect(lambda: self.btn_1(self.btn_9.text()))
-        self.btn_1.clicked.connect(lambda: self.btn_1(self.btn_1.text()))
-        self.btn_1.clicked.connect(lambda: self.btn_1(self.btn_1.text()))
-    def write_number(self,number):
-        print(number)
+        btn_plus.setWindowTitle(_translate("btn_plus", "Calculate"))
+        self.label.setText(_translate("btn_plus", "0"))
+        self.btn_zero.setText(_translate("btn_plus", "0"))
+        self.btn_equal.setText(_translate("btn_plus", "="))
+        self.pushButton.setText(_translate("btn_plus", "+"))
+        self.btn_divide.setText(_translate("btn_plus", "/"))
+        self.btn_multi.setText(_translate("btn_plus", "*"))
+        self.btn_minus.setText(_translate("btn_plus", "-"))
+        self.btn_7.setText(_translate("btn_plus", "7"))
+        self.btn_5.setText(_translate("btn_plus", "5"))
+        self.btn_4.setText(_translate("btn_plus", "4"))
+        self.btn_1.setText(_translate("btn_plus", "1"))
+        self.btn_3.setText(_translate("btn_plus", "3"))
+        self.btn_9.setText(_translate("btn_plus", "9"))
+        self.btn_2.setText(_translate("btn_plus", "2"))
+        self.btn_6.setText(_translate("btn_plus", "6"))
+        self.btn_8.setText(_translate("btn_plus", "8"))
+        self.btn_delete.setText(_translate("btn_plus", "DELETE"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    btn_plus = QtWidgets.QMainWindow()
+    ui = Ui_btn_plus()
+    ui.setupUi(btn_plus)
+    btn_plus.show()
     sys.exit(app.exec_())
